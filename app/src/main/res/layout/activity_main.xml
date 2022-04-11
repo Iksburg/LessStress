@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/dancing_script_regular"
+        android:gravity="center"
+        android:text="less stress"
+        android:textSize="50sp" />
+    <Button
+        android:id="@+id/buttonNature"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:background="@drawable/simple_button"
+        android:text="Природа"
+        android:textAllCaps="false"/>
+    <Button
+        android:id="@+id/buttonBonfire"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:background="@drawable/simple_button"
+        android:text="Костёр"
+        android:textAllCaps="false"/>
+    <Button
+        android:id="@+id/buttonBirds"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:background="@drawable/simple_button"
+        android:text="Птички"
+        android:textAllCaps="false"/>
+    <Button
+        android:id="@+id/buttonSnowSteps"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:background="@drawable/simple_button"
+        android:text="Шаги по снегу"
+        android:textAllCaps="false"/>
+    <Button
+        android:id="@+id/buttonThunder"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:background="@drawable/simple_button"
+        android:text="Гроза"
+        android:textAllCaps="false"/>
+
+</LinearLayout>
