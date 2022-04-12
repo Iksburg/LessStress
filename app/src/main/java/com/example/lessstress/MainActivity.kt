@@ -1,10 +1,13 @@
 package com.example.lessstress
 
+import android.media.AudioManager
 import android.media.MediaPlayer
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.SeekBar
+import android.widget.SeekBar.OnSeekBarChangeListener
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,85 +20,127 @@ class MainActivity : AppCompatActivity() {
         val birds = findViewById<Button>(R.id.buttonBirds)
         val snowSteps = findViewById<Button>(R.id.buttonSnowSteps)
         val thunder = findViewById<Button>(R.id.buttonThunder)
+        val stop = findViewById<Button>(R.id.stopButton)
         val mp = MediaPlayer()
-        var pause = false
-        var isPrepared = false
+        val currentTrack = MediaPlayer()
+
+        var pausedNature = false
+        var pausedBonfire = false
+        var pausedBirds = false
+        var pausedSnowSteps = false
+        var pausedThunder = false
+
+        var currentResource = ""
+
+        val audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
+        val maxVolume: Int = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
+        val curValue: Int = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
+
+        val volumeControl = findViewById<SeekBar>(R.id.volumeControl)
+        volumeControl.setMax(maxVolume)
+        volumeControl.setProgress(curValue)
+        volumeControl.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, progress, 0)
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar) {}
+        })
 
         nature.setOnClickListener {
-            if (!mp.isPlaying) {
-                if (!pause) {
-                    mp.setDataSource(this, Uri.parse("android.resource://"+this.packageName+"/"+R.raw.nature))
-                    mp.prepare()
-                    mp.start()
-                } else {
+            if (currentResource != "nature") {
+                mp.reset()
+                mp.setDataSource(this, Uri.parse("android.resource://"+this.packageName+"/"+R.raw.nature))
+                mp.prepare()
+                mp.start()
+                currentResource = "nature"
+            } else {
+                if (mp.isPlaying) {
+                    mp.pause()
+                    pausedNature = true
+                } else if (pausedNature) {
                     mp.start()
                 }
-            } else {
-                mp.pause()
-                pause = true
             }
         }
 
         bonfire.setOnClickListener {
-            if (!mp.isPlaying) {
-                if (!pause) {
-                    mp.setDataSource(this, Uri.parse("android.resource://"+this.packageName+"/"+R.raw.bonfire))
-                    mp.prepare()
-                    mp.start()
-                } else {
+            if (currentResource != "bonfire") {
+                mp.reset()
+                mp.setDataSource(this, Uri.parse("android.resource://"+this.packageName+"/"+R.raw.bonfire))
+                mp.prepare()
+                mp.start()
+                currentResource = "bonfire"
+            } else {
+                if (mp.isPlaying) {
+                    mp.pause()
+                    pausedBonfire = true
+                } else if (pausedBonfire) {
                     mp.start()
                 }
-            } else {
-                mp.pause()
-                pause = true
             }
         }
 
         birds.setOnClickListener {
-            if (!mp.isPlaying) {
-                if (!pause) {
-                    mp.setDataSource(this, Uri.parse("android.resource://"+this.packageName+"/"+R.raw.birds))
-                    mp.prepare()
-                    mp.start()
-                } else {
+            if (currentResource != "birds") {
+                mp.reset()
+                mp.setDataSource(this, Uri.parse("android.resource://"+this.packageName+"/"+R.raw.birds))
+                mp.prepare()
+                mp.start()
+                currentResource = "birds"
+            } else {
+                if (mp.isPlaying) {
+                    mp.pause()
+                    pausedBirds = true
+                } else if (pausedBirds) {
                     mp.start()
                 }
-            } else {
-                mp.pause()
-                pause = true
             }
         }
 
         snowSteps.setOnClickListener {
-            if (!mp.isPlaying) {
-                if (!pause) {
-                    mp.setDataSource(this, Uri.parse("android.resource://"+this.packageName+"/"+R.raw.snow_steps))
-                    mp.prepare()
-                    mp.start()
-                } else {
+            if (currentResource != "snowSteps") {
+                mp.reset()
+                mp.setDataSource(this, Uri.parse("android.resource://"+this.packageName+"/"+R.raw.snow_steps))
+                mp.prepare()
+                mp.start()
+                currentResource = "snowSteps"
+            } else {
+                if (mp.isPlaying) {
+                    mp.pause()
+                    pausedSnowSteps = true
+                } else if (pausedSnowSteps) {
                     mp.start()
                 }
-            } else {
-                mp.pause()
-                pause = true
             }
         }
 
         thunder.setOnClickListener {
-            if (!mp.isPlaying) {
-                if (!pause) {
-                    mp.setDataSource(this, Uri.parse("android.resource://"+this.packageName+"/"+R.raw.thunder))
-                    mp.prepare()
-                    mp.start()
-                } else {
+            if (currentResource != "thunder") {
+                mp.reset()
+                mp.setDataSource(this, Uri.parse("android.resource://"+this.packageName+"/"+R.raw.thunder))
+                mp.prepare()
+                mp.start()
+                currentResource = "thunder"
+            } else {
+                if (mp.isPlaying) {
+                    mp.pause()
+                    pausedThunder = true
+                } else if (pausedThunder) {
                     mp.start()
                 }
-            } else {
-                mp.pause()
-                pause = true
             }
         }
 
+        stop.setOnClickListener {
+            try {
+                if (mp.isPlaying) mp.stop()
+                mp.prepare()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
     }
 }
 

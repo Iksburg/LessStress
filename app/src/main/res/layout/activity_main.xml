@@ -10,6 +10,14 @@
     tools:context=".MainActivity">
 
 
+    <SeekBar
+        android:id="@+id/volumeControl"
+        android:layout_width="215dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,6 +60,14 @@
         android:layout_height="100sp"
         android:background="@drawable/simple_button"
         android:text="Гроза"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/stopButton"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:background="@drawable/simple_button"
+        android:text="Стоп"
         android:textAllCaps="false"/>
 
 </LinearLayout>
