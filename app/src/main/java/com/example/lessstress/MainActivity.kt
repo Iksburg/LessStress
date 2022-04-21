@@ -5,6 +5,7 @@ import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
 import androidx.appcompat.app.AppCompatActivity
@@ -15,14 +16,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val nature = findViewById<Button>(R.id.buttonNature)
-        val bonfire = findViewById<Button>(R.id.buttonBonfire)
-        val birds = findViewById<Button>(R.id.buttonBirds)
-        val snowSteps = findViewById<Button>(R.id.buttonSnowSteps)
-        val thunder = findViewById<Button>(R.id.buttonThunder)
+        val nature = findViewById<ImageButton>(R.id.buttonNature)
+        val bonfire = findViewById<ImageButton>(R.id.buttonBonfire)
+        val birds = findViewById<ImageButton>(R.id.buttonBirds)
+        val snowSteps = findViewById<ImageButton>(R.id.buttonSnowSteps)
+        val thunder = findViewById<ImageButton>(R.id.buttonThunder)
         val stop = findViewById<Button>(R.id.stopButton)
         val mp = MediaPlayer()
-        val currentTrack = MediaPlayer()
 
         var pausedNature = false
         var pausedBonfire = false
@@ -37,13 +37,12 @@ class MainActivity : AppCompatActivity() {
         val curValue: Int = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
 
         val volumeControl = findViewById<SeekBar>(R.id.volumeControl)
-        volumeControl.setMax(maxVolume)
-        volumeControl.setProgress(curValue)
+        volumeControl.max = maxVolume
+        volumeControl.progress = curValue
         volumeControl.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, progress, 0)
             }
-
             override fun onStartTrackingTouch(seekBar: SeekBar) {}
             override fun onStopTrackingTouch(seekBar: SeekBar) {}
         })
@@ -51,7 +50,7 @@ class MainActivity : AppCompatActivity() {
         nature.setOnClickListener {
             if (currentResource != "nature") {
                 mp.reset()
-                mp.setDataSource(this, Uri.parse("android.resource://"+this.packageName+"/"+R.raw.nature))
+                mp.setDataSource(this, Uri.parse("android.resource://"+this.packageName+"/"+R.raw.forest))
                 mp.prepare()
                 mp.start()
                 currentResource = "nature"

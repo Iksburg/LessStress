@@ -15,6 +15,8 @@
         android:layout_width="215dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:thumbTint="@color/white"
+        android:backgroundTint="@color/purple_200"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
@@ -26,48 +28,45 @@
         android:gravity="center"
         android:text="less stress"
         android:textSize="50sp" />
-    <Button
+
+    <ImageButton
         android:id="@+id/buttonNature"
-        android:layout_width="100sp"
-        android:layout_height="100sp"
-        android:background="@drawable/simple_button"
-        android:text="Природа"
-        android:textAllCaps="false"/>
-    <Button
+        android:layout_width="99dp"
+        android:layout_height="84dp"
+        android:background="@drawable/forest" />
+
+    <ImageButton
         android:id="@+id/buttonBonfire"
-        android:layout_width="100sp"
-        android:layout_height="100sp"
-        android:background="@drawable/simple_button"
-        android:text="Костёр"
-        android:textAllCaps="false"/>
-    <Button
+        android:layout_width="99dp"
+        android:layout_height="84dp"
+        android:background="@drawable/bonfire" />
+
+    <ImageButton
         android:id="@+id/buttonBirds"
-        android:layout_width="100sp"
-        android:layout_height="100sp"
-        android:background="@drawable/simple_button"
-        android:text="Птички"
-        android:textAllCaps="false"/>
-    <Button
+        android:layout_width="99dp"
+        android:layout_height="84dp"
+        android:background="@drawable/bird"/>
+    <ImageButton
         android:id="@+id/buttonSnowSteps"
-        android:layout_width="100sp"
-        android:layout_height="100sp"
-        android:background="@drawable/simple_button"
-        android:text="Шаги по снегу"
-        android:textAllCaps="false"/>
-    <Button
+        android:layout_width="99dp"
+        android:layout_height="84dp"
+        android:background="@drawable/steps"/>
+
+    <ImageButton
         android:id="@+id/buttonThunder"
-        android:layout_width="100sp"
-        android:layout_height="100sp"
-        android:background="@drawable/simple_button"
-        android:text="Гроза"
-        android:textAllCaps="false"/>
+        android:layout_width="99dp"
+        android:layout_height="84dp"
+        android:background="@drawable/thunder"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/stopButton"
-        android:layout_width="100sp"
-        android:layout_height="100sp"
-        android:background="@drawable/simple_button"
+        android:layout_width="213dp"
+        android:layout_height="53dp"
+        android:background="?android:attr/selectableItemBackground"
         android:text="Стоп"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false"
+        android:textSize="12pt"
+        app:fontFamily="@font/pt_sans_bold" />
 
 </LinearLayout>
