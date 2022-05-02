@@ -13,17 +13,17 @@ import io.realm.RealmResults
 import java.text.DateFormat
 
 
-class MyAdapter(var context: Context, var notesList: RealmResults<Note>) :
+class MyAdapter(var context: Context, var sleepList: RealmResults<Note>) :
     RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(LayoutInflater.from(context).inflate(R.layout.item_view, parent, false))
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val note = notesList[position]
-        holder.titleOutput.text = note!!.title
-        holder.descriptionOutput.text = note.description
-        val formatedTime = DateFormat.getDateTimeInstance().format(note.createdTime)
+        val sleep = sleepList[position]
+        holder.titleOutput.text = sleep!!.title
+        holder.descriptionOutput.text = sleep.description
+        val formatedTime = DateFormat.getDateTimeInstance().format(sleep.createdTime)
         holder.timeOutput.text = formatedTime
         holder.itemView.setOnLongClickListener { v ->
             val menu = PopupMenu(context, v)
@@ -32,7 +32,7 @@ class MyAdapter(var context: Context, var notesList: RealmResults<Note>) :
                 if (item.title == "Удалить") {
                     val realm = Realm.getDefaultInstance()
                     realm.beginTransaction()
-                    note.deleteFromRealm()
+                    sleep.deleteFromRealm()
                     realm.commitTransaction()
                     Toast.makeText(context, "Сон удалён", Toast.LENGTH_SHORT).show()
                 }
@@ -44,7 +44,7 @@ class MyAdapter(var context: Context, var notesList: RealmResults<Note>) :
     }
 
     override fun getItemCount(): Int {
-        return notesList.size
+        return sleepList.size
     }
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

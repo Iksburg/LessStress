@@ -7,12 +7,12 @@
     android:orientation="vertical"
     android:background="@drawable/background"
     android:padding="20dp"
-    tools:context=".AddNoteActivity">
+    tools:context=".AddSleepActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/titletextview"
+        android:id="@+id/titleTextView"
         android:text="Добавить новый сон"
         android:textColor="@color/white"
         android:textSize="25dp"
@@ -30,7 +30,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/titleinput"
+            android:id="@+id/titleInput"
             android:hint="Заголовок"
             android:background="#3000B0FF"
             android:padding="10dp"
@@ -38,7 +38,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/descriptioninput"
+            android:id="@+id/descriptionInput"
             android:hint="Описание сна"
             android:background="#3000B0FF"
             android:padding="10dp"
@@ -49,14 +49,29 @@
 
     </LinearLayout>
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/savebtn"
+        android:id="@+id/saveButton"
         android:text="Сохранить сон"
         android:layout_gravity="center"
         android:backgroundTint="@color/white"
-        android:textColor="#00B0FF"/>
+        android:textColor="#000000"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center|bottom|start"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/back_button"/>
+    </LinearLayout>
 
 
 </LinearLayout>

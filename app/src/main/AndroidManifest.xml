@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LessStress">
         <activity
-            android:name=".AddNoteActivity"
+            android:name=".AddSleepActivity"
             android:exported="false" />
         <activity
             android:name=".SleepDiary"

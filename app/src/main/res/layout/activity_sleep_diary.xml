@@ -8,28 +8,84 @@
     tools:context=".SleepDiary">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/appTitle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/notestitle"
-        android:text="Сны"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/dancing_script_regular"
+        android:gravity="center"
+        android:text="less stress"
+        android:textSize="50sp" />
+
+    <TextView
+        android:id="@+id/sleepTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appTitle"
+        android:text="Журнал сна"
         android:textSize="20dp"
+        android:gravity="center"
         android:textColor="@color/white"
         android:textStyle="bold"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:layout_below="@id/notestitle" />
+        android:layout_height="530dp"
+        android:layout_below="@+id/sleepTitle" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/addnewnotebtn"
+        android:id="@+id/addMusicButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/recyclerview"
+        android:layout_below="@+id/recyclerView"
         android:layout_marginTop="5dp"
         android:backgroundTint="@color/white"
         android:text="Добавить новый сон"
-        android:textColor="#00B0FF" />
+        android:textColor="#000000" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/addMusicButton"
+        android:gravity="center|bottom"
+        android:paddingBottom="30dp">
+
+        <ImageButton
+            android:id="@+id/musicButton"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:background="@drawable/music_icon"
+            android:textAllCaps="false" />
+
+        <ImageButton
+            android:id="@+id/puzzleButton"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:background="@drawable/puzzle_icon"
+            android:textAllCaps="false" />
+
+        <ImageButton
+            android:id="@+id/moonButton"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:background="@drawable/moon_icon"
+            android:textAllCaps="false" />
+
+        <ImageButton
+            android:id="@+id/hurricaneButton"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:background="@drawable/hurricane_icon"
+            android:textAllCaps="false" />
+
+        <ImageButton
+            android:id="@+id/elephantButton"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:background="@drawable/elephant_icon"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
 
 </RelativeLayout>
