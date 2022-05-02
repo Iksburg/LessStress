@@ -9,14 +9,14 @@
     android:gravity="center"
     tools:context=".MainActivity">
 
-
     <SeekBar
         android:id="@+id/volumeControl"
         android:layout_width="215dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:thumbTint="@color/white"
         android:backgroundTint="@color/purple_200"
+        android:progressTint="@color/blue1"
+        android:thumbTint="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
@@ -61,12 +61,56 @@
 
     <Button
         android:id="@+id/stopButton"
-        android:layout_width="213dp"
+        android:layout_width="wrap_content"
         android:layout_height="53dp"
         android:background="?android:attr/selectableItemBackground"
+        android:letterSpacing="-0.0005"
         android:text="Стоп"
         android:textAllCaps="false"
         android:textSize="12pt"
         app:fontFamily="@font/pt_sans_bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:id="@+id/musicButton"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:background="@drawable/music_icon"
+            android:textAllCaps="false" />
+
+        <ImageButton
+            android:id="@+id/puzzleButton"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:background="@drawable/puzzle_icon"
+            android:textAllCaps="false" />
+
+        <ImageButton
+            android:id="@+id/moonButton"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:background="@drawable/moon_icon"
+            android:textAllCaps="false" />
+
+        <ImageButton
+            android:id="@+id/hurricaneButton"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:background="@drawable/hurricane_icon"
+            android:textAllCaps="false" />
+
+        <ImageButton
+            android:id="@+id/elephantButton"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:background="@drawable/elephant_icon"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
 
 </LinearLayout>
