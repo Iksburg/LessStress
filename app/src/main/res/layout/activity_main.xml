@@ -7,7 +7,7 @@
     android:background="@drawable/background"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".MainActivity">
+    tools:context=".Music">
 
 
     <SeekBar
@@ -50,14 +50,14 @@
     <Button
         android:id="@+id/buttonSnowSteps"
         android:layout_width="100sp"
-        android:layout_height="100sp"
+        android:layout_height="50sp"
         android:background="@drawable/simple_button"
         android:text="Шаги по снегу"
         android:textAllCaps="false"/>
     <Button
         android:id="@+id/buttonThunder"
         android:layout_width="100sp"
-        android:layout_height="100sp"
+        android:layout_height="50sp"
         android:background="@drawable/simple_button"
         android:text="Гроза"
         android:textAllCaps="false"/>
@@ -65,9 +65,52 @@
     <Button
         android:id="@+id/stopButton"
         android:layout_width="100sp"
-        android:layout_height="100sp"
+        android:layout_height="50sp"
         android:background="@drawable/simple_button"
         android:text="Стоп"
         android:textAllCaps="false"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/musicButton"
+            android:layout_width="80sp"
+            android:layout_height="80sp"
+            android:background="@drawable/music_icon"
+            android:textAllCaps="false" />
+
+        <ImageButton
+            android:id="@+id/puzzleButton"
+            android:layout_width="80sp"
+            android:layout_height="80sp"
+            android:background="@drawable/puzzle_icon"
+            android:textAllCaps="false" />
+
+        <ImageButton
+            android:id="@+id/moonButton"
+            android:layout_width="80sp"
+            android:layout_height="80sp"
+            android:background="@drawable/moon_icon"
+            android:textAllCaps="false" />
+
+        <ImageButton
+            android:id="@+id/hurricaneButton"
+            android:layout_width="80sp"
+            android:layout_height="80sp"
+            android:background="@drawable/hurricane_icon"
+            android:textAllCaps="false" />
+
+        <ImageButton
+            android:id="@+id/elephantButton"
+            android:layout_width="80sp"
+            android:layout_height="80sp"
+            android:background="@drawable/elephant_icon"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
 
 </LinearLayout>
