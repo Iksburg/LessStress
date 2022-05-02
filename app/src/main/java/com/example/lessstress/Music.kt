@@ -15,7 +15,7 @@ class Music : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_music)
 
         val music = findViewById<ImageButton>(R.id.musicButton)
         val puzzle = findViewById<ImageButton>(R.id.puzzleButton)
@@ -23,11 +23,11 @@ class Music : AppCompatActivity() {
         val hurricane = findViewById<ImageButton>(R.id.hurricaneButton)
         val elephant = findViewById<ImageButton>(R.id.elephantButton)
 
-        val nature = findViewById<Button>(R.id.buttonNature)
-        val bonfire = findViewById<Button>(R.id.buttonBonfire)
-        val birds = findViewById<Button>(R.id.buttonBirds)
-        val snowSteps = findViewById<Button>(R.id.buttonSnowSteps)
-        val thunder = findViewById<Button>(R.id.buttonThunder)
+        val nature = findViewById<ImageButton>(R.id.buttonNature)
+        val bonfire = findViewById<ImageButton>(R.id.buttonBonfire)
+        val birds = findViewById<ImageButton>(R.id.buttonBirds)
+        val snowSteps = findViewById<ImageButton>(R.id.buttonSnowSteps)
+        val thunder = findViewById<ImageButton>(R.id.buttonThunder)
         val stop = findViewById<Button>(R.id.stopButton)
         val mp = MediaPlayer()
 
