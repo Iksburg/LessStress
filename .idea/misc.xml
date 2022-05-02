@@ -5,7 +5,14 @@
       <map>
         <entry key="..\:/Users/admin/AndroidStudioProjects/LessStress/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1735" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/LessStress/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1735" />
-        <entry key="..\:/Users/admin/AndroidStudioProjects/LessStress/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/LessStress/app/src/main/res/drawable/rounded_corner.xml" value="0.239" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/LessStress/app/src/main/res/layout/activity_add_note.xml" value="0.29743589743589743" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/LessStress/app/src/main/res/layout/activity_add_sleep.xml" value="0.14536340852130325" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/LessStress/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/LessStress/app/src/main/res/layout/activity_sleep_diary.xml" value="0.1" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/LessStress/app/src/main/res/layout/activity_sleep_diary2.xml" value="0.25" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/LessStress/app/src/main/res/layout/item_todo.xml" value="0.33" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/LessStress/app/src/main/res/layout/item_view.xml" value="0.28289473684210525" />
         <entry key="..\:/Users/coolg/StudioProjects/LessStressD/app/src/main/res/layout/activity_main.xml" value="0.22" />
       </map>
     </option>
