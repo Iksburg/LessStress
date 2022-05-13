@@ -19,9 +19,7 @@ class SleepDiary : AppCompatActivity() {
         setContentView(R.layout.activity_sleep_diary)
 
         val music = findViewById<ImageButton>(R.id.musicButton)
-        val puzzle = findViewById<ImageButton>(R.id.puzzleButton)
         val moon = findViewById<ImageButton>(R.id.moonButton)
-        val hurricane = findViewById<ImageButton>(R.id.hurricaneButton)
         val elephant = findViewById<ImageButton>(R.id.elephantButton)
 
         moon.setOnClickListener {

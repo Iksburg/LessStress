@@ -59,24 +59,10 @@
             android:textAllCaps="false" />
 
         <ImageButton
-            android:id="@+id/puzzleButton"
-            android:layout_width="60sp"
-            android:layout_height="60sp"
-            android:background="@drawable/puzzle_icon"
-            android:textAllCaps="false" />
-
-        <ImageButton
             android:id="@+id/moonButton"
             android:layout_width="60sp"
             android:layout_height="60sp"
             android:background="@drawable/moon_icon"
-            android:textAllCaps="false" />
-
-        <ImageButton
-            android:id="@+id/hurricaneButton"
-            android:layout_width="60sp"
-            android:layout_height="60sp"
-            android:background="@drawable/hurricane_icon"
             android:textAllCaps="false" />
 
         <ImageButton

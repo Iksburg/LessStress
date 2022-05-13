@@ -18,9 +18,7 @@ class Music : AppCompatActivity() {
         setContentView(R.layout.activity_music)
 
         val music = findViewById<ImageButton>(R.id.musicButton)
-        val puzzle = findViewById<ImageButton>(R.id.puzzleButton)
         val moon = findViewById<ImageButton>(R.id.moonButton)
-        val hurricane = findViewById<ImageButton>(R.id.hurricaneButton)
         val elephant = findViewById<ImageButton>(R.id.elephantButton)
 
         val nature = findViewById<ImageButton>(R.id.buttonNature)
