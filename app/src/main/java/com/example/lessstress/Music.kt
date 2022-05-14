@@ -63,6 +63,11 @@ class Music : AppCompatActivity() {
             startActivity(intent)
         }
 
+        elephant.setOnClickListener {
+            val intent = Intent(this, Breath::class.java)
+            startActivity(intent)
+        }
+
         nature.setOnClickListener {
             if (currentResource != "nature") {
                 mp.reset()

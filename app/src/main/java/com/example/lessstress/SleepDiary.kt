@@ -32,6 +32,11 @@ class SleepDiary : AppCompatActivity() {
             startActivity(intent)
         }
 
+        elephant.setOnClickListener {
+            val intent = Intent(this, Breath::class.java)
+            startActivity(intent)
+        }
+
         val addMusicButton = findViewById<MaterialButton>(R.id.addMusicButton)
         addMusicButton.setOnClickListener {
             startActivity(

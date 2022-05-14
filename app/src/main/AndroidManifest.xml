@@ -8,6 +8,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LessStress">
         <activity
+            android:name=".Breath"
+            android:exported="false" />
+        <activity
+            android:name=".Worried"
+            android:exported="false" />
+        <activity
+            android:name=".Stressed"
+            android:exported="false" />
+        <activity
+            android:name=".Sleepy"
+            android:exported="false" />
+        <activity
+            android:name=".PanicAttack"
+            android:exported="false" />
+        <activity
+            android:name=".Angry"
+            android:exported="false" />
+        <activity
             android:name=".Music"
             android:exported="false" />
         <activity
