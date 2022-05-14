@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:gravity="center"
     android:orientation="vertical"
     tools:context=".Breath">
 
@@ -19,14 +18,15 @@
         android:textSize="50sp" />
 
     <ImageView
-        android:layout_width="500sp"
+        android:layout_width="wrap_content"
         android:layout_height="250dp"
         android:src="@drawable/gif_elephant_removed" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center">
         <Button
             android:id="@+id/buttonPanicAttack"
             android:layout_width="300dp"
@@ -86,8 +86,8 @@
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:paddingBottom="30dp"
         android:gravity="center|bottom">
 

@@ -27,7 +27,12 @@ class Stressed : AppCompatActivity() {
             override fun run() {
                 try {
                     while (!this.isInterrupted) {
-                        if (i > 11) break
+                        if (i > 11) {
+                            runOnUiThread {
+                                text.text = "Дыхательная гимнастика закончена"
+                            }
+                            break
+                        }
                         runOnUiThread {
                             text.text = motion[i].first
                         }
