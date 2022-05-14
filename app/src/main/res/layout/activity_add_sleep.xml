@@ -32,6 +32,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/titleInput"
             android:hint="Заголовок"
+            android:fontFamily="@font/pt_sans_bold"
             android:background="#3000B0FF"
             android:padding="10dp"
             android:layout_margin="10dp"/>
@@ -40,6 +41,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/descriptionInput"
             android:hint="Описание сна"
+            android:fontFamily="@font/pt_sans_bold"
             android:background="#3000B0FF"
             android:padding="10dp"
             android:layout_margin="10dp"
@@ -54,24 +56,24 @@
         android:layout_height="wrap_content"
         android:id="@+id/saveButton"
         android:text="Сохранить сон"
+        android:textAllCaps="false"
         android:layout_gravity="center"
-        android:backgroundTint="@color/white"
-        android:textColor="#000000"/>
+        android:background="?android:attr/selectableItemBackground"
+        android:fontFamily="@font/pt_sans_bold"
+        android:textSize="25dp"
+        android:letterSpacing="-0.0005"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1"
-        android:gravity="center|bottom|start"
-        android:orientation="vertical" >
-
-        <ImageButton
-            android:id="@+id/backButton"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/back_button"/>
-    </LinearLayout>
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Назад"
+        android:textAllCaps="false"
+        android:layout_gravity="center"
+        android:background="?android:attr/selectableItemBackground"
+        android:fontFamily="@font/pt_sans_bold"
+        android:textSize="25dp"
+        android:letterSpacing="-0.0005" />
 
 
 </LinearLayout>
