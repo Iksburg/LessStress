@@ -14,7 +14,7 @@ class AddSleepActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_sleep)
 
-        val backButton = findViewById<ImageButton>(R.id.backButton)
+        val backButton = findViewById<Button>(R.id.backButton)
 
         backButton.setOnClickListener {
             val intent = Intent(this, SleepDiary::class.java)

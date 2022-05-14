@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:gravity="center"
     android:orientation="vertical"
     tools:context=".Breath">
 
@@ -18,38 +17,26 @@
         android:text="less stress"
         android:textSize="50sp" />
 
-
-
     <ImageView
-        android:layout_width="500sp"
+        android:layout_width="match_parent"
         android:layout_height="250dp"
         android:src="@drawable/gif_elephant_removed" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center">
 
         <TextView
             android:id="@+id/text"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="70sp"
             android:layout_gravity="center_horizontal"
-            android:fontFamily="@font/dancing_script_regular"
+            android:fontFamily="@font/pt_sans_bold"
             android:gravity="center"
-            android:text=""
-            android:textSize="50sp" />
-
-        <Button
-            android:id="@+id/buttonBack"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:background="?android:attr/selectableItemBackground"
-            android:letterSpacing="-0.0005"
-            android:text="Назад"
-            android:textAllCaps="false"
-            android:textSize="10pt"
-            app:fontFamily="@font/pt_sans_bold" />
+            android:text="Нажмите старт"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/buttonStart"
@@ -58,6 +45,17 @@
             android:background="?android:attr/selectableItemBackground"
             android:letterSpacing="-0.0005"
             android:text="Старт"
+            android:textAllCaps="false"
+            android:textSize="10pt"
+            app:fontFamily="@font/pt_sans_bold" />
+
+        <Button
+            android:id="@+id/buttonBack"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:letterSpacing="-0.0005"
+            android:text="Назад"
             android:textAllCaps="false"
             android:textSize="10pt"
             app:fontFamily="@font/pt_sans_bold" />

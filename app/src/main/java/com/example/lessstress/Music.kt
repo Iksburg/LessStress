@@ -157,6 +157,7 @@ class Music : AppCompatActivity() {
             try {
                 if (mp.isPlaying) mp.stop()
                 mp.prepare()
+                currentResource = ""
             } catch (e: Exception) {
                 e.printStackTrace()
             }
