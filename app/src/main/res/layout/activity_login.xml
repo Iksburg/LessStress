@@ -58,7 +58,7 @@
         android:ems="10"
         android:hint="Пароль"
         android:textStyle="bold"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:textAllCaps="false"
         android:textColor="@color/col"
         app:layout_constraintEnd_toEndOf="parent"

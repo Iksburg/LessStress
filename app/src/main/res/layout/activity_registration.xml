@@ -39,7 +39,7 @@
         android:layout_gravity="center"
         android:ems="10"
         android:hint="Введите пароль"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textStyle="bold"/>
