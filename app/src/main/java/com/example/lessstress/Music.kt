@@ -54,25 +54,31 @@ class Music : AppCompatActivity() {
         })
 
         moon.setOnClickListener {
-            if (mp.isPlaying) mp.stop()
-            mp.prepare()
-            currentResource = ""
+            if (mp.isPlaying) {
+                mp.stop()
+                mp.prepare()
+                currentResource = ""
+            }
             val intent = Intent(this, SleepDiary::class.java)
             startActivity(intent)
         }
 
         music.setOnClickListener {
-            if (mp.isPlaying) mp.stop()
-            mp.prepare()
-            currentResource = ""
+            if (mp.isPlaying) {
+                mp.stop()
+                mp.prepare()
+                currentResource = ""
+            }
             val intent = Intent(this, Music::class.java)
             startActivity(intent)
         }
 
         elephant.setOnClickListener {
-            if (mp.isPlaying) mp.stop()
-            mp.prepare()
-            currentResource = ""
+            if (mp.isPlaying) {
+                mp.stop()
+                mp.prepare()
+                currentResource = ""
+            }
             val intent = Intent(this, Breath::class.java)
             startActivity(intent)
         }
@@ -164,9 +170,11 @@ class Music : AppCompatActivity() {
 
         stop.setOnClickListener {
             try {
-                if (mp.isPlaying) mp.stop()
-                mp.prepare()
-                currentResource = ""
+                if (mp.isPlaying) {
+                    mp.stop()
+                    mp.prepare()
+                    currentResource = ""
+                }
             } catch (e: Exception) {
                 e.printStackTrace()
             }
