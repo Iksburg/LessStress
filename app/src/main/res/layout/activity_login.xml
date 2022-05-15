@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:gravity="center"
-        android:text="Пользователь"
+        android:text="Логин"
         android:textStyle="bold"
         android:textColor="@color/col"
         app:layout_constraintBaseline_toBaselineOf="@+id/editTextTextName"
