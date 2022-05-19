@@ -15,24 +15,25 @@ class Angry : AppCompatActivity() {
         val text = findViewById<TextView>(R.id.text)
         var i = 0
         val motion = listOf<Pair<String, Long>>(
-            Pair("Вдохните через нос", 4000), Pair("Задержите дыхание", 2000),
-            Pair("Выдохните через нос", 4000), Pair("Задержите дыхание", 2000),
-            Pair("Вдохните через нос", 4000), Pair("Задержите дыхание", 2000),
-            Pair("Выдохните через нос", 4000), Pair("Задержите дыхание", 2000),
-            Pair("Вдохните через нос", 4000), Pair("Задержите дыхание", 2000),
-            Pair("Выдохните через нос", 4000), Pair("Задержите дыхание", 2000),
-            Pair("Вдохните через нос", 4000), Pair("Задержите дыхание", 2000),
-            Pair("Выдохните через нос", 4000), Pair("Задержите дыхание", 2000)
+            Pair("Вдохните через нос", 1000), Pair("Задержите дыхание", 1000),
+            Pair("Выдохните через нос", 1000), Pair("Задержите дыхание", 1000),
+            Pair("Вдохните через нос", 1000), Pair("Задержите дыхание", 1000),
+            Pair("Выдохните через нос", 1000), Pair("Задержите дыхание", 1000),
+            Pair("Вдохните через нос", 1000), Pair("Задержите дыхание", 1000),
+            Pair("Выдохните через нос", 1000), Pair("Задержите дыхание", 1000),
+            Pair("Вдохните через нос", 1000), Pair("Задержите дыхание", 1000),
+            Pair("Выдохните через нос", 1000), Pair("Задержите дыхание", 1000)
         )
 
         val thread: Thread = object : Thread() {
             override fun run() {
                 try {
                     while (!this.isInterrupted) {
-                        if (i > 11) {
+                        if (i > 15) {
                             runOnUiThread {
                                 text.text = "Дыхательная гимнастика закончена"
                             }
+                            i = 0
                             break
                         }
                         runOnUiThread {
@@ -41,14 +42,14 @@ class Angry : AppCompatActivity() {
                         sleep(motion[i].second)
                         i++
                     }
+                    this.interrupt()
                 } catch (e: InterruptedException) {
                 }
             }
         }
 
         start.setOnClickListener {
-            thread.start()
-
+            if (!thread.isAlive) thread.start()
         }
 
         back.setOnClickListener {

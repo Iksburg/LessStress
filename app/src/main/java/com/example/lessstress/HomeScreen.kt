@@ -23,6 +23,7 @@ class HomeScreen : AppCompatActivity() {
         buttonLog = findViewById(R.id.buttonLogin)
         buttonInf = findViewById(R.id.buttonInfo)
         buttonInf.isEnabled = false
+        buttonLog.isEnabled = true
     }
 
     fun onLogin(view: View) {

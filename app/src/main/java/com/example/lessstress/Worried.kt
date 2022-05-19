@@ -26,10 +26,11 @@ class Worried : AppCompatActivity() {
             override fun run() {
                 try {
                     while (!this.isInterrupted) {
-                        if (i > 11) {
+                        if (i > 9) {
                             runOnUiThread {
                                 text.text = "Дыхательная гимнастика закончена"
                             }
+                            i = 0
                             break
                         }
                         runOnUiThread {
@@ -44,8 +45,7 @@ class Worried : AppCompatActivity() {
         }
 
         start.setOnClickListener {
-            thread.start()
-
+            if (!thread.isAlive) thread.start()
         }
 
         back.setOnClickListener {

@@ -31,6 +31,7 @@ class Sleepy : AppCompatActivity() {
                             runOnUiThread {
                                 text.text = "Дыхательная гимнастика закончена"
                             }
+                            i = 0
                             break
                         }
                         runOnUiThread {
@@ -45,8 +46,7 @@ class Sleepy : AppCompatActivity() {
         }
 
         start.setOnClickListener {
-            thread.start()
-
+            if (!thread.isAlive) thread.start()
         }
 
         back.setOnClickListener {

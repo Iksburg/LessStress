@@ -15,12 +15,12 @@ class Stressed : AppCompatActivity() {
         val text = findViewById<TextView>(R.id.text)
         var i = 0
         val motion = listOf<Pair<String, Long>>(
-            Pair("Вхохните и напрягитесь", 3000), Pair("Выдохните и расслабтесь", 3000),
-            Pair("Вхохните и напрягитесь", 3000), Pair("Выдохните и расслабтесь", 3000),
-            Pair("Вхохните и напрягитесь", 3000), Pair("Выдохните и расслабтесь", 3000),
-            Pair("Вхохните и напрягитесь", 3000), Pair("Выдохните и расслабтесь", 3000),
-            Pair("Вхохните и напрягитесь", 3000), Pair("Выдохните и расслабтесь", 3000),
-            Pair("Вхохните и напрягитесь", 3000), Pair("Выдохните и расслабтесь", 3000),
+            Pair("Вдохните и напрягитесь", 3000), Pair("Выдохните и расслабтесь", 3000),
+            Pair("Вдохните и напрягитесь", 3000), Pair("Выдохните и расслабтесь", 3000),
+            Pair("Вдохните и напрягитесь", 3000), Pair("Выдохните и расслабтесь", 3000),
+            Pair("Вдохните и напрягитесь", 3000), Pair("Выдохните и расслабтесь", 3000),
+            Pair("Вдохните и напрягитесь", 3000), Pair("Выдохните и расслабтесь", 3000),
+            Pair("Вдохните и напрягитесь", 3000), Pair("Выдохните и расслабтесь", 3000),
         )
 
         val thread: Thread = object : Thread() {
@@ -31,6 +31,7 @@ class Stressed : AppCompatActivity() {
                             runOnUiThread {
                                 text.text = "Дыхательная гимнастика закончена"
                             }
+                            i = 0
                             break
                         }
                         runOnUiThread {
@@ -45,8 +46,7 @@ class Stressed : AppCompatActivity() {
         }
 
         start.setOnClickListener {
-            thread.start()
-
+            if (!thread.isAlive) thread.start()
         }
 
         back.setOnClickListener {
