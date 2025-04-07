@@ -4,23 +4,21 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 import io.realm.kotlin.Realm
 import io.realm.kotlin.RealmConfiguration
 import io.realm.kotlin.ext.query
-import io.realm.kotlin.ext.sort
-import io.realm.kotlin.types.RealmObject
-import io.realm.kotlin.notifications.ResultsChange
-import io.realm.kotlin.notifications.Updated
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+
 
 class SleepDiary : AppCompatActivity() {
 
     private lateinit var realm: Realm
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var myAdapter: MyAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,48 +29,39 @@ class SleepDiary : AppCompatActivity() {
         val elephant = findViewById<ImageButton>(R.id.elephantButton)
 
         moon.setOnClickListener {
-            val intent = Intent(this, SleepDiary::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, SleepDiary::class.java))
         }
 
         music.setOnClickListener {
-            val intent = Intent(this, Music::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, Music::class.java))
         }
 
         elephant.setOnClickListener {
-            val intent = Intent(this, Breath::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, Breath::class.java))
         }
 
         val addMusicButton = findViewById<MaterialButton>(R.id.addMusicButton)
         addMusicButton.setOnClickListener {
-            startActivity(
-                Intent(
-                    this@SleepDiary,
-                    AddSleepActivity::class.java
-                )
-            )
+            startActivity(Intent(this@SleepDiary, AddSleepActivity::class.java))
         }
 
         val config = RealmConfiguration.create(schema = setOf(Note::class))
         realm = Realm.open(config)
 
-        loadData()
+        recyclerView = findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
+        observeData()
     }
 
-    private fun loadData() {
-        val sleepList = realm.query<Note>().sort("createdTime").find()
+    private fun observeData() {
+        val sleepQuery = realm.query<Note>().sort("createdTime")
 
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        val myAdapter = MyAdapter(applicationContext, sleepList)
-        recyclerView.adapter = myAdapter
-
-        sleepList.addListener { results: ResultsChange<Note> ->
-            when (results) {
-                is Updated -> myAdapter.notifyDataSetChanged()
+        lifecycleScope.launch {
+            sleepQuery.asFlow().collect { resultsChange ->
+                val notes = resultsChange.list.toList()
+                myAdapter = MyAdapter(applicationContext, notes)
+                recyclerView.adapter = myAdapter
             }
         }
     }

@@ -10,17 +10,15 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import io.realm.kotlin.Realm
 import io.realm.kotlin.RealmConfiguration
-import io.realm.kotlin.ext.delete
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.text.DateFormat
 
-class MyAdapter(var context: Context, var sleepList: RealmResults<Note>) :
+class MyAdapter(var context: Context, private var sleepList: List<Note>) :
     RecyclerView.Adapter<MyAdapter.MyViewHolder>(), CoroutineScope {
 
-    // Объявляем контекст для корутин
     override val coroutineContext = Dispatchers.Main
 
     private val realm by lazy {
@@ -34,9 +32,9 @@ class MyAdapter(var context: Context, var sleepList: RealmResults<Note>) :
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val sleep = sleepList[position]
-        holder.titleOutput.text = sleep?.title
-        holder.descriptionOutput.text = sleep?.description
-        val formatedTime = DateFormat.getDateTimeInstance().format(sleep?.createdTime)
+        holder.titleOutput.text = sleep.title
+        holder.descriptionOutput.text = sleep.description
+        val formatedTime = DateFormat.getDateTimeInstance().format(sleep.createdTime)
         holder.timeOutput.text = formatedTime
 
         holder.itemView.setOnLongClickListener { v ->
@@ -44,11 +42,10 @@ class MyAdapter(var context: Context, var sleepList: RealmResults<Note>) :
             menu.menu.add("Удалить")
             menu.setOnMenuItemClickListener { item ->
                 if (item.title == "Удалить") {
-                    // Асинхронное удаление элемента из базы
                     launch {
                         withContext(Dispatchers.IO) {
-                            realm.write {
-                                sleep?.delete() // Удаляем объект из Realm
+                            realm.writeBlocking {
+                                delete(sleep)
                             }
                         }
                         Toast.makeText(context, "Сон удалён", Toast.LENGTH_SHORT).show()
@@ -69,10 +66,5 @@ class MyAdapter(var context: Context, var sleepList: RealmResults<Note>) :
         var titleOutput: TextView = itemView.findViewById(R.id.titleoutput)
         var descriptionOutput: TextView = itemView.findViewById(R.id.descriptionoutput)
         var timeOutput: TextView = itemView.findViewById(R.id.timeoutput)
-    }
-
-    // Закрываем Realm при уничтожении адаптера
-    fun closeRealm() {
-        realm.close()
     }
 }
