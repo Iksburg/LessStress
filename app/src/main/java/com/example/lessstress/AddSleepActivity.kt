@@ -4,18 +4,29 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import io.realm.Realm
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import kotlinx.coroutines.*
+import kotlin.coroutines.CoroutineContext
 
-class AddSleepActivity : AppCompatActivity() {
+class AddSleepActivity : AppCompatActivity(), CoroutineScope {
+
+    private val job = SupervisorJob()
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main + job
+
+    private lateinit var realm: Realm
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_sleep)
 
-        val backButton = findViewById<Button>(R.id.backButton)
+        val config = RealmConfiguration.create(schema = setOf(Note::class))
+        realm = Realm.open(config)
 
+        val backButton = findViewById<Button>(R.id.backButton)
         backButton.setOnClickListener {
             val intent = Intent(this, SleepDiary::class.java)
             startActivity(intent)
@@ -25,22 +36,30 @@ class AddSleepActivity : AppCompatActivity() {
         val descriptionInput = findViewById<EditText>(R.id.descriptionInput)
         val saveButton = findViewById<Button>(R.id.saveButton)
 
-        Realm.init(applicationContext)
-        val realm = Realm.getDefaultInstance()
-
         saveButton.setOnClickListener {
             val title = titleInput.text.toString()
             val description = descriptionInput.text.toString()
             val createdTime = System.currentTimeMillis()
 
-            realm.beginTransaction()
-            val sleep: Note = realm.createObject(Note::class.java)
-            sleep.title = title
-            sleep.description = description
-            sleep.createdTime = createdTime
-            realm.commitTransaction()
-            Toast.makeText(applicationContext, "Сон сохранён", Toast.LENGTH_SHORT).show()
-            finish()
+            launch {
+                realm.write {
+                    this.copyToRealm(
+                        Note().apply {
+                            this.title = title
+                            this.description = description
+                            this.createdTime = createdTime
+                        }
+                    )
+                }
+                Toast.makeText(applicationContext, "Сон сохранён", Toast.LENGTH_SHORT).show()
+                finish()
+            }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        job.cancel()
+        realm.close()
     }
 }

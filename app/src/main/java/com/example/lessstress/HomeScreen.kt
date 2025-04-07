@@ -45,6 +45,7 @@ class HomeScreen : AppCompatActivity() {
         startActivityForResult(myIntent, requestCodeRegister)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
@@ -67,7 +68,9 @@ class HomeScreen : AppCompatActivity() {
         val intent = Intent(this, Music::class.java)
         startActivity(intent)
     }
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
+        super.onBackPressed()
         val builder = AlertDialog.Builder(this)
         builder.setMessage("Вы действительно хотите выйти?")
         builder.setCancelable(false).setPositiveButton("Да") { dialog, id -> this@HomeScreen.finish()}
