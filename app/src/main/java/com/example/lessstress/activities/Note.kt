@@ -1,9 +1,9 @@
-package com.example.lessstress
+package com.example.lessstress.activities
 
 import kotlinx.serialization.Serializable
 import io.realm.kotlin.types.RealmObject
 import io.realm.kotlin.types.annotations.PrimaryKey
-import java.util.*
+import java.util.UUID
 
 @Serializable
 open class Note : RealmObject {

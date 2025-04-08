@@ -1,10 +1,11 @@
-package com.example.lessstress
+package com.example.lessstress.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import com.example.lessstress.R
 
 class PanicAttack : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

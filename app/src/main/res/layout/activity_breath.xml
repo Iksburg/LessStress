@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:orientation="vertical"
-    tools:context=".Breath">
+    tools:context=".activities.Breath">
 
     <TextView
         android:layout_width="wrap_content"
@@ -17,11 +17,8 @@
         android:text="less stress"
         android:textSize="50sp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="70dp"/>
-
     <ImageView
+        android:layout_marginTop="70dp"
         android:layout_width="wrap_content"
         android:layout_height="250dp"
         android:src="@drawable/gif_elephant_removed" />
@@ -49,7 +46,7 @@
             android:background="?android:attr/selectableItemBackground"
             android:text="Волнение"
             android:textAllCaps="false"
-            android:textSize="10pt"
+            android:textSize="22sp"
             android:letterSpacing="-0.0005"
             app:fontFamily="@font/pt_sans_bold" />
 
@@ -60,7 +57,7 @@
             android:background="?android:attr/selectableItemBackground"
             android:text="Сонливость"
             android:textAllCaps="false"
-            android:textSize="10pt"
+            android:textSize="22sp"
             android:letterSpacing="-0.0005"
             app:fontFamily="@font/pt_sans_bold" />
 
@@ -72,7 +69,7 @@
             android:background="?android:attr/selectableItemBackground"
             android:text="Стресс"
             android:textAllCaps="false"
-            android:textSize="10pt"
+            android:textSize="22sp"
             android:letterSpacing="-0.0005"
             app:fontFamily="@font/pt_sans_bold" />
 
@@ -84,7 +81,7 @@
             android:letterSpacing="-0.0005"
             android:text="Гнев"
             android:textAllCaps="false"
-            android:textSize="10pt"
+            android:textSize="22sp"
             app:fontFamily="@font/pt_sans_bold" />
     </LinearLayout>
 

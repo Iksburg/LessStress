@@ -1,4 +1,4 @@
-package com.example.lessstress
+package com.example.lessstress.activities
 
 import android.content.Intent
 import android.media.AudioManager
@@ -10,6 +10,7 @@ import android.widget.ImageButton
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
 import androidx.appcompat.app.AppCompatActivity
+import com.example.lessstress.R
 
 class Music : AppCompatActivity() {
 
@@ -86,7 +87,7 @@ class Music : AppCompatActivity() {
         nature.setOnClickListener {
             if (currentResource != "nature") {
                 mp.reset()
-                mp.setDataSource(this, Uri.parse("android.resource://"+this.packageName+"/"+R.raw.nature))
+                mp.setDataSource(this, Uri.parse("android.resource://"+this.packageName+"/"+ R.raw.nature))
                 mp.prepare()
                 mp.start()
                 currentResource = "nature"
@@ -103,7 +104,7 @@ class Music : AppCompatActivity() {
         bonfire.setOnClickListener {
             if (currentResource != "bonfire") {
                 mp.reset()
-                mp.setDataSource(this, Uri.parse("android.resource://"+this.packageName+"/"+R.raw.bonfire))
+                mp.setDataSource(this, Uri.parse("android.resource://"+this.packageName+"/"+ R.raw.bonfire))
                 mp.prepare()
                 mp.start()
                 currentResource = "bonfire"
@@ -120,7 +121,7 @@ class Music : AppCompatActivity() {
         birds.setOnClickListener {
             if (currentResource != "birds") {
                 mp.reset()
-                mp.setDataSource(this, Uri.parse("android.resource://"+this.packageName+"/"+R.raw.birds))
+                mp.setDataSource(this, Uri.parse("android.resource://"+this.packageName+"/"+ R.raw.birds))
                 mp.prepare()
                 mp.start()
                 currentResource = "birds"
@@ -137,7 +138,7 @@ class Music : AppCompatActivity() {
         snowSteps.setOnClickListener {
             if (currentResource != "snowSteps") {
                 mp.reset()
-                mp.setDataSource(this, Uri.parse("android.resource://"+this.packageName+"/"+R.raw.snow_steps))
+                mp.setDataSource(this, Uri.parse("android.resource://"+this.packageName+"/"+ R.raw.snow_steps))
                 mp.prepare()
                 mp.start()
                 currentResource = "snowSteps"
@@ -154,7 +155,7 @@ class Music : AppCompatActivity() {
         thunder.setOnClickListener {
             if (currentResource != "thunder") {
                 mp.reset()
-                mp.setDataSource(this, Uri.parse("android.resource://"+this.packageName+"/"+R.raw.thunder))
+                mp.setDataSource(this, Uri.parse("android.resource://"+this.packageName+"/"+ R.raw.thunder))
                 mp.prepare()
                 mp.start()
                 currentResource = "thunder"

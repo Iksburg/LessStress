@@ -6,8 +6,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/background"
-    android:padding="20dp"
-    tools:context=".AddSleepActivity">
+    tools:context=".activities.AddSleepActivity">
+
+    <TextView
+        android:id="@+id/appTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/dancing_script_regular"
+        android:gravity="center"
+        android:text="less stress"
+        android:textSize="50sp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -15,7 +24,7 @@
         android:id="@+id/titleTextView"
         android:text="Добавить новый сон"
         android:textColor="@color/white"
-        android:textSize="25dp"
+        android:textSize="24sp"
         android:textStyle="bold"
         android:gravity="center"
         android:layout_margin="20dp"/>
@@ -33,7 +42,7 @@
             android:id="@+id/titleInput"
             android:hint="Заголовок"
             android:fontFamily="@font/pt_sans_bold"
-            android:background="#3000B0FF"
+            android:background="#CFF0FF"
             android:padding="10dp"
             android:layout_margin="10dp"/>
         <EditText
@@ -42,7 +51,7 @@
             android:id="@+id/descriptionInput"
             android:hint="Описание сна"
             android:fontFamily="@font/pt_sans_bold"
-            android:background="#3000B0FF"
+            android:background="#CFF0FF"
             android:padding="10dp"
             android:layout_margin="10dp"
             android:lines="10"
@@ -59,7 +68,7 @@
         android:layout_gravity="center"
         android:background="?android:attr/selectableItemBackground"
         android:fontFamily="@font/pt_sans_bold"
-        android:textSize="25dp"
+        android:textSize="24sp"
         android:letterSpacing="-0.0005"/>
 
     <Button
@@ -71,6 +80,6 @@
         android:layout_gravity="center"
         android:background="?android:attr/selectableItemBackground"
         android:fontFamily="@font/pt_sans_bold"
-        android:textSize="25dp"
+        android:textSize="24sp"
         android:letterSpacing="-0.0005" />
 </LinearLayout>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:orientation="vertical"
-    tools:context=".Breath">
+    tools:context=".activities.Breath">
 
     <TextView
         android:layout_width="wrap_content"
@@ -19,11 +19,11 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="70dp"/>
+        android:layout_height="70sp"/>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="250sp"
         android:src="@drawable/gif_elephant_removed" />
 
     <LinearLayout
@@ -44,7 +44,7 @@
 
         <Button
             android:id="@+id/buttonStart"
-            android:layout_width="300dp"
+            android:layout_width="300sp"
             android:layout_height="wrap_content"
             android:background="?android:attr/selectableItemBackground"
             android:letterSpacing="-0.0005"

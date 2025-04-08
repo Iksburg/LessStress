@@ -6,12 +6,12 @@
     android:layout_height="wrap_content"
     android:background="@drawable/home_background"
     android:orientation="vertical"
-    tools:context=".HomeScreen">
+    tools:context=".home.HomeScreen">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="252dp"
+        android:layout_marginTop="300dp"
         android:gravity="center"
         android:text = "Добро пожаловать!"
         android:textColor="#DDDCEA"
@@ -21,39 +21,29 @@
 
     <Button
         android:id="@+id/buttonLogin"
-        android:layout_width="210dp"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:enabled="false"
+        android:backgroundTint="@color/col"
+        android:enabled="true"
         android:onClick="onLogin"
+        android:text="Вход"
         android:textSize="21sp"
-        android:textStyle="bold"
-        android:text="Войти"
-        android:backgroundTint="@color/col"/>
+        android:textColor="@color/white"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/buttonRegister"
-        android:layout_width="210dp"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
+        android:backgroundTint="@color/col"
         android:onClick="onRegister"
         android:text="Регистрация"
-        android:textStyle="bold"
         android:textSize="21sp"
-        android:backgroundTint="@color/col"/>
-
-    <Button
-        android:id="@+id/buttonInfo"
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:onClick="onInformation"
-        android:text="Информация"
-        android:textStyle="bold"
-        android:textSize="21sp"
-        android:backgroundTint="@color/col"/>
+        android:textColor="@color/white"
+        android:textStyle="bold" />
 
 </LinearLayout>

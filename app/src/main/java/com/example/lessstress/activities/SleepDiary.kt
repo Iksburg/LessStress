@@ -1,4 +1,4 @@
-package com.example.lessstress
+package com.example.lessstress.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.lessstress.R
 import com.google.android.material.button.MaterialButton
 import io.realm.kotlin.Realm
 import io.realm.kotlin.RealmConfiguration

@@ -1,4 +1,4 @@
-package com.example.lessstress
+package com.example.lessstress.activities
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,8 +8,10 @@ import android.widget.PopupMenu
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.lessstress.R
 import io.realm.kotlin.Realm
 import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.ext.isValid
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -45,7 +47,10 @@ class MyAdapter(var context: Context, private var sleepList: List<Note>) :
                     launch {
                         withContext(Dispatchers.IO) {
                             realm.writeBlocking {
-                                delete(sleep)
+                                val liveSleep = findLatest(sleep)
+                                if (liveSleep != null && liveSleep.isValid()) {
+                                    delete(liveSleep)
+                                }
                             }
                         }
                         Toast.makeText(context, "Сон удалён", Toast.LENGTH_SHORT).show()

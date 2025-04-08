@@ -6,23 +6,23 @@
     android:layout_height="wrap_content"
     android:background="@drawable/home_background"
     android:orientation="vertical"
-    tools:context=".Registration">
+    tools:context=".home.Registration">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="242dp"
+        android:layout_marginTop="300dp"
         android:gravity="center"
         android:text = "Регистрация"
         android:textColor="#DDDCEA"
-        android:textSize="43sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         android:fontFamily="@font/palatino"/>
 
     <EditText
         android:id="@+id/editTextTextUsr"
         android:layout_marginTop="15dp"
-        android:layout_width="265dp"
+        android:layout_width="295dp"
         android:layout_height="44dp"
         android:layout_gravity="center"
         android:ems="10"
@@ -34,7 +34,7 @@
 
     <EditText
         android:id="@+id/editTextTextPwd"
-        android:layout_width="265dp"
+        android:layout_width="295dp"
         android:layout_height="44dp"
         android:layout_gravity="center"
         android:ems="10"
@@ -47,7 +47,7 @@
     <EditText
         android:id="@+id/editTextTextName"
         android:ems="10"
-        android:layout_width="265dp"
+        android:layout_width="295dp"
         android:layout_height="44dp"
         android:textStyle="bold"
         android:hint="Введите Ваше имя"
@@ -58,7 +58,7 @@
 
     <EditText
         android:id="@+id/editTextPwd"
-        android:layout_width="265dp"
+        android:layout_width="295dp"
         android:layout_height="44dp"
         android:ems="10"
         android:textStyle="bold"
@@ -76,7 +76,7 @@
         android:onClick="onEnter"
         android:layout_gravity="center"
         android:text="Зарегистрироваться"
-        android:width="265dp"
+        android:width="295dp"
         android:textAllCaps="false"
         android:textSize="20sp"
         android:textColor="@color/white"
@@ -88,10 +88,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:width="265dp"
+        android:width="295dp"
         android:backgroundTint="@color/col"
         android:onClick="onCancel"
-        android:text="Отменить"
+        android:text="Назад"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20sp"/>

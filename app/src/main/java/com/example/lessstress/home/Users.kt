@@ -1,4 +1,4 @@
-package com.example.lessstress
+package com.example.lessstress.home
 
 import android.os.Bundle
 
@@ -15,12 +15,5 @@ class Users {
         bundle.putCharSequence("name", name)
         bundle.putCharSequence("lastName", lastName)
         return bundle
-    }
-
-    fun setBundle(bundle: Bundle) {
-        user = bundle.getString("user", "")
-        password = bundle.getString("password", "")
-        name = bundle.getString("name", "")
-        lastName = bundle.getString("lastName", "")
     }
 }
