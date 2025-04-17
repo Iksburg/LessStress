@@ -7,9 +7,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import org.json.JSONObject
-import java.io.BufferedReader
-import java.io.InputStreamReader
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
@@ -27,28 +24,24 @@ class Registration : AppCompatActivity() {
     private lateinit var et_nam: EditText
     private lateinit var et_lastN: EditText
     private lateinit var actualizerButton: Button
-    var register = true
+    private var register = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
+
         et_usr = findViewById(R.id.editTextTextUsr)
         et_pwd = findViewById(R.id.editTextTextPwd)
         et_nam = findViewById(R.id.editTextTextName)
         et_lastN = findViewById(R.id.editTextPwd)
         actualizerButton = findViewById(R.id.buttonOk)
-        val register = intent.getBooleanExtra("register", true)
+
+        register = intent.getBooleanExtra("register", true)
+
         if (!register) {
             actualizerButton.text = "Обновить"
-            val file= "myFile.json"
-            val bufferedReader = BufferedReader(InputStreamReader(openFileInput(file)))
-            val readText = bufferedReader.readLine()
-            val jsonObject = JSONObject(readText)
-            et_usr.setText(jsonObject.getString("user"))
-            et_pwd.setText(jsonObject.getString("password"))
-            et_nam.setText(jsonObject.getString("name"))
-            et_lastN.setText(jsonObject.getString("lastName"))
-            bufferedReader.close()
+            Toast.makeText(this, "Функция обновления пока не реализована", Toast.LENGTH_SHORT).show()
+            actualizerButton.isEnabled = false
         }
     }
 

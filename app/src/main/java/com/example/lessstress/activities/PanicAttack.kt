@@ -50,8 +50,6 @@ class PanicAttack : AppCompatActivity() {
             if (!thread.isAlive) thread.start()
         }
 
-
-
         back.setOnClickListener {
             startActivity(
                 Intent(
