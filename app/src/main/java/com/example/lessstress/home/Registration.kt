@@ -68,7 +68,7 @@ class Registration : AppCompatActivity() {
 
             lifecycleScope.launch {
                 try {
-                    val response: HttpResponse = ktorClient.post("http://10.0.2.2:8080/register") {
+                    val response: HttpResponse = ktorClient.post("http://192.168.161.109:8080/register") {
                         contentType(ContentType.Application.Json)
                         setBody(userRequest)
                     }

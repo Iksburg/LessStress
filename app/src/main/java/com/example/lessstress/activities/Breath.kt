@@ -12,29 +12,13 @@ class Breath : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_breath)
 
+        setupNavigation()
+
         val panicAttack = findViewById<Button>(R.id.buttonPanicAttack)
         val worried = findViewById<Button>(R.id.buttonWorried)
         val sleepy = findViewById<Button>(R.id.buttonSleepy)
         val stressed = findViewById<Button>(R.id.buttonStress)
         val angry = findViewById<Button>(R.id.buttonAngry)
-        val music = findViewById<ImageButton>(R.id.musicButton)
-        val moon = findViewById<ImageButton>(R.id.moonButton)
-        val elephant = findViewById<ImageButton>(R.id.elephantButton)
-
-        moon.setOnClickListener {
-            val intent = Intent(this, SleepDiary::class.java)
-            startActivity(intent)
-        }
-
-        music.setOnClickListener {
-            val intent = Intent(this, Music::class.java)
-            startActivity(intent)
-        }
-
-        elephant.setOnClickListener {
-            val intent = Intent(this, Breath::class.java)
-            startActivity(intent)
-        }
 
         panicAttack.setOnClickListener {
             startActivity(
@@ -79,6 +63,17 @@ class Breath : AppCompatActivity() {
                     Angry::class.java
                 )
             )
+        }
+    }
+
+    private fun setupNavigation() {
+        findViewById<ImageButton>(R.id.musicButton).setOnClickListener {
+            startActivity(Intent(this, Music::class.java))
+        }
+        findViewById<ImageButton>(R.id.moonButton).setOnClickListener {
+            startActivity(Intent(this, SleepDiary::class.java))
+        }
+        findViewById<ImageButton>(R.id.elephantButton).setOnClickListener {
         }
     }
 }

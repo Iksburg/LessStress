@@ -18,9 +18,7 @@ class Music : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_music)
 
-        val music = findViewById<ImageButton>(R.id.musicButton)
-        val moon = findViewById<ImageButton>(R.id.moonButton)
-        val elephant = findViewById<ImageButton>(R.id.elephantButton)
+        setupNavigation()
 
         val nature = findViewById<ImageButton>(R.id.buttonNature)
         val bonfire = findViewById<ImageButton>(R.id.buttonBonfire)
@@ -54,35 +52,6 @@ class Music : AppCompatActivity() {
             override fun onStopTrackingTouch(seekBar: SeekBar) {}
         })
 
-        moon.setOnClickListener {
-            if (mp.isPlaying) {
-                mp.stop()
-                mp.prepare()
-                currentResource = ""
-            }
-            val intent = Intent(this, SleepDiary::class.java)
-            startActivity(intent)
-        }
-
-        music.setOnClickListener {
-            if (mp.isPlaying) {
-                mp.stop()
-                mp.prepare()
-                currentResource = ""
-            }
-            val intent = Intent(this, Music::class.java)
-            startActivity(intent)
-        }
-
-        elephant.setOnClickListener {
-            if (mp.isPlaying) {
-                mp.stop()
-                mp.prepare()
-                currentResource = ""
-            }
-            val intent = Intent(this, Breath::class.java)
-            startActivity(intent)
-        }
 
         nature.setOnClickListener {
             if (currentResource != "nature") {
@@ -179,6 +148,17 @@ class Music : AppCompatActivity() {
             } catch (e: Exception) {
                 e.printStackTrace()
             }
+        }
+    }
+
+    private fun setupNavigation() {
+        findViewById<ImageButton>(R.id.musicButton).setOnClickListener {
+        }
+        findViewById<ImageButton>(R.id.moonButton).setOnClickListener {
+            startActivity(Intent(this, SleepDiary::class.java))
+        }
+        findViewById<ImageButton>(R.id.elephantButton).setOnClickListener {
+            startActivity(Intent(this, Breath::class.java))
         }
     }
 }

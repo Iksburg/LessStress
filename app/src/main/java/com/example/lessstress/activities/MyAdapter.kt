@@ -1,75 +1,49 @@
 package com.example.lessstress.activities
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.PopupMenu
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lessstress.R
-import io.realm.kotlin.Realm
-import io.realm.kotlin.RealmConfiguration
-import io.realm.kotlin.ext.isValid
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
-class MyAdapter(var context: Context, private var sleepList: List<Note>) :
-    RecyclerView.Adapter<MyAdapter.MyViewHolder>(), CoroutineScope {
+class MyAdapter(private var sleepList: List<Note>) :
+    RecyclerView.Adapter<MyAdapter.SleepViewHolder>() {
 
-    override val coroutineContext = Dispatchers.Main
-
-    private val realm by lazy {
-        val config = RealmConfiguration.create(schema = setOf(Note::class))
-        Realm.open(config)
+    fun updateData(newList: List<Note>) {
+        sleepList = newList
+        notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(LayoutInflater.from(context).inflate(R.layout.item_view, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SleepViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_view, parent, false)
+        return SleepViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val sleep = sleepList[position]
-        holder.titleOutput.text = sleep.title
-        holder.descriptionOutput.text = sleep.description
-        val formatedTime = DateFormat.getDateTimeInstance().format(sleep.createdTime)
-        holder.timeOutput.text = formatedTime
+    override fun onBindViewHolder(holder: SleepViewHolder, position: Int) {
+        val item = sleepList[position]
+        holder.titleOutput.text = item.title
+        holder.descriptionOutput.text = item.description
 
-        holder.itemView.setOnLongClickListener { v ->
-            val menu = PopupMenu(context, v)
-            menu.menu.add("Удалить")
-            menu.setOnMenuItemClickListener { item ->
-                if (item.title == "Удалить") {
-                    launch {
-                        withContext(Dispatchers.IO) {
-                            realm.writeBlocking {
-                                val liveSleep = findLatest(sleep)
-                                if (liveSleep != null && liveSleep.isValid()) {
-                                    delete(liveSleep)
-                                }
-                            }
-                        }
-                        Toast.makeText(context, "Сон удалён", Toast.LENGTH_SHORT).show()
-                    }
-                }
-                true
-            }
-            menu.show()
-            true
+        try {
+            val isoFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX", Locale.getDefault())
+            isoFormat.timeZone = TimeZone.getTimeZone("UTC")
+            val date = isoFormat.parse(item.date)
+            val outputFormat = SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.getDefault())
+            holder.timeOutput.text = date?.let { outputFormat.format(it) } ?: "Неверная дата"
+        } catch (e: Exception) {
+            holder.timeOutput.text = "Ошибка даты"
+            e.printStackTrace()
         }
     }
 
-    override fun getItemCount(): Int {
-        return sleepList.size
-    }
+    override fun getItemCount(): Int = sleepList.size
 
-    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var titleOutput: TextView = itemView.findViewById(R.id.titleoutput)
-        var descriptionOutput: TextView = itemView.findViewById(R.id.descriptionoutput)
-        var timeOutput: TextView = itemView.findViewById(R.id.timeoutput)
+    inner class SleepViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val titleOutput: TextView = itemView.findViewById(R.id.titleoutput)
+        val descriptionOutput: TextView = itemView.findViewById(R.id.descriptionoutput)
+        val timeOutput: TextView = itemView.findViewById(R.id.timeoutput)
     }
 }

@@ -7,7 +7,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.lessstress.activities.Music
 import com.example.lessstress.R
 import io.ktor.client.*
 import io.ktor.client.request.*
@@ -18,6 +17,8 @@ import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.Dispatchers
 import org.json.JSONObject
+import androidx.core.content.edit
+import com.example.lessstress.activities.SleepDiary
 
 class Login : AppCompatActivity() {
 
@@ -49,16 +50,9 @@ class Login : AppCompatActivity() {
 
         MainScope().launch(Dispatchers.IO) {
             try {
-                val response: HttpResponse = client.post("http://10.0.2.2:8080/login") {
+                val response: HttpResponse = client.post("http://192.168.161.109:8080/login") {
                     contentType(ContentType.Application.Json)
-                    setBody(
-                        """
-                            {
-                                "username": "$inputLogin",
-                                "password": "$inputPassword"
-                            }
-                        """.trimIndent()
-                    )
+                    setBody(LoginRequest(inputLogin, inputPassword))
                 }
 
                 val responseBody = response.bodyAsText()
@@ -66,8 +60,19 @@ class Login : AppCompatActivity() {
                 if (response.status == HttpStatusCode.OK) {
                     val jsonResponse = JSONObject(responseBody)
                     val token = jsonResponse.getString("token")
+                    val userId = jsonResponse.getInt("userId")
+
                     if (token.isNotEmpty()) {
-                        val intent = Intent(this@Login, Music::class.java)
+                        val prefs = getSharedPreferences("auth", MODE_PRIVATE)
+                        prefs.edit {
+                            putString("token", token)
+                                .putInt("userId", userId)
+                        }
+
+                        val intent = Intent(this@Login, SleepDiary::class.java).apply {
+                            putExtra("token", token)
+                            putExtra("userId", userId)
+                        }
                         startActivity(intent)
                         finish()
                     }

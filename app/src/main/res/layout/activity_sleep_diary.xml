@@ -36,7 +36,7 @@
         android:layout_below="@+id/sleepTitle" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/addMusicButton"
+        android:id="@+id/addDreamButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/recyclerView"
@@ -48,7 +48,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/addMusicButton"
+        android:layout_below="@+id/addDreamButton"
         android:gravity="center|bottom"
         android:paddingBottom="30dp">
 
